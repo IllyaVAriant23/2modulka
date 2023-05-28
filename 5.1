@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void inputArray(double arr[], int size) {
+    printf("Введіть елементи масиву:\n");
+    for (int i = 0; i < size; i++) {
+        printf("Елемент %d: ", i+1);
+        scanf("%lf", &arr[i]);
+    }
+}
+
+void outputArray(double arr[], int size) {
+    printf("Масив елементів:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%.2lf ", arr[i]);
+    }
+    printf("\n");
+}
+
+double sumOfEvenElements(double arr[], int size) {
+    double sum = 0;
+    for (int i = 0; i < size; i++) {
+        if ((int)arr[i] % 2 == 0) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int n;
+    printf("Введіть кількість елементів масиву: ");
+    scanf("%d", &n);
+
+    double arr[n];
+
+    inputArray(arr, n);
+    outputArray(arr, n);
+
+    double sum = sumOfEvenElements(arr, n);
+    printf("Сума парних елементів масиву: %.2lf\n", sum);
+
+    return 0;
+}
