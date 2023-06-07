@@ -1,43 +1,39 @@
 #include <stdio.h>
 
-void inputArray(double arr[], int size) {
+void dlakilk(float array[], int n) {
     printf("Введіть елементи масиву:\n");
-    for (int i = 0; i < size; i++) {
-        printf("Елемент %d: ", i+1);
-        scanf("%lf", &arr[i]);
+    for (int i = 0; i < n; i++) {
+        printf("a%d: ", i + 1);
+        scanf("%f", &array[i]);
     }
 }
-
-void outputArray(double arr[], int size) {
-    printf("Масив елементів:\n");
-    for (int i = 0; i < size; i++) {
-        printf("%.2lf ", arr[i]);
+void dlamasiv(float array[], int n) {
+    printf("Елементи масиву:\n");
+    for (int i = 0; i < n; i++) {
+        printf("a%d: %.2f\n", i + 1, array[i]);
     }
-    printf("\n");
 }
-
-double sumOfEvenElements(double arr[], int size) {
-    double sum = 0;
-    for (int i = 0; i < size; i++) {
-        if ((int)arr[i] % 2 == 0) {
-            sum += arr[i];
+float sumamasiv(float array[], int n) {
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        if ((int)array[i] % 2 == 0) {
+            sum += array[i];
         }
     }
     return sum;
 }
-
 int main() {
     int n;
     printf("Введіть кількість елементів масиву: ");
     scanf("%d", &n);
 
-    double arr[n];
+    float array[n];
 
-    inputArray(arr, n);
-    outputArray(arr, n);
+    dlakilk(array, n);
+    dlamasiv(array, n);
 
-    double sum = sumOfEvenElements(arr, n);
-    printf("Сума парних елементів масиву: %.2lf\n", sum);
+    float sum = sumamasiv(array, n);
+    printf("Сума парних елементів: %.2f\n", sum);
 
     return 0;
 }
